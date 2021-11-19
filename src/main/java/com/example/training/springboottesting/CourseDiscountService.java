@@ -15,11 +15,16 @@ public class CourseDiscountService {
     }
 
     public int getCourseDiscount(String courseName)  {
-
         Integer discount = discountHelper.getDiscount(courseName);
         if(user.isPrimeCustomer()){
             return discount+20;
         }
         return discount;
     }
+
+
+
+
+
 }
+

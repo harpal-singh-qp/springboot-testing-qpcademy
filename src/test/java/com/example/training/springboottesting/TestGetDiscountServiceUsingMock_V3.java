@@ -41,9 +41,12 @@ class TestGetDiscountServiceUsingMock_V3 {
 
     @Test
     void validatePrimeCustomerDiscount() {
+      //aaa//aRRANGE
         when(user.isPrimeCustomer()).thenReturn(true);
         when(discountHelper.getDiscount(anyString())).thenReturn(10);
+      //ACT
         int discount = courseDiscountService.getCourseDiscount("springboot");
+      //aSSERT
         assertEquals(30, discount);
     }
 

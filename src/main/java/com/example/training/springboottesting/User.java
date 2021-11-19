@@ -2,7 +2,7 @@ package com.example.training.springboottesting;/* harpalsingh created on 11/11/2
 
 import lombok.Data;
 
-import java.util.random.RandomGenerator;
+import java.util.Random;
 /**
  * @author Harpal Singh 11/12/21
  */
@@ -10,8 +10,9 @@ import java.util.random.RandomGenerator;
 public class User {
     private int id;
     private String name;
+    private String emailAddress;
 
     public boolean isPrimeCustomer() {
-        return RandomGenerator.getDefault().nextBoolean();
+        return new Random().nextBoolean();
     }
 }

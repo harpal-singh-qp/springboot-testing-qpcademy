@@ -23,4 +23,12 @@ public class CourseService {
 
         return courseDtos;
     }
+
+
+    public Course createCourse(CourseDto courseDto){
+        Course course= new Course();
+        course.setTitle(courseDto.getCourseName().toUpperCase());
+        return courseRepository.save(course);
+    }
+
 }
