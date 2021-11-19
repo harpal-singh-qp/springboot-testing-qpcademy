@@ -11,11 +11,12 @@
 - How to use `JPABuddy`.
 
 ##### 1. Mocking Using Mockito
--  Introduction to Mockito
+- Introduction to Mockito
 - Creating Mocks with Mockito
 - Stubbing Method calls of Mockito
 - Verifying Interaction of a Mock
--  Others: - @Mock vs @MockBean vs @Spy
+- Usages of Argument Captors
+- Others: - @Mock vs @MockBean vs @Spy
 ##### 2. Introduction to Junit 5
 - Assertions 
 - Naming Test
