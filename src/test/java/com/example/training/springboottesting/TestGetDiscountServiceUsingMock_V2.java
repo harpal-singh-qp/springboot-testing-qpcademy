@@ -32,7 +32,7 @@ class TestGetDiscountServiceUsingMock_V2 {
     }
 
     @Test
-    void validatePrimeCustomerDiscount() {
+    void validatePrimeCustomerDiscount() throws CourseNotFoundException {
         when(user.isPrimeCustomer()).thenReturn(true);
         when(discountHelper.getDiscount(anyString())).thenReturn(10);
         int discount = courseDiscountService.getCourseDiscount("springboot");
@@ -40,7 +40,7 @@ class TestGetDiscountServiceUsingMock_V2 {
     }
 
     @Test
-    void validateNonPrimeCustomerDiscount() {
+    void validateNonPrimeCustomerDiscount() throws CourseNotFoundException {
         when(user.isPrimeCustomer()).thenReturn(false);
         when(discountHelper.getDiscount(anyString())).thenReturn(10);
         int discount = courseDiscountService.getCourseDiscount("springboot");

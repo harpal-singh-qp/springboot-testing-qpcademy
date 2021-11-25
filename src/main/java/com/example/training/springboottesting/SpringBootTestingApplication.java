@@ -1,5 +1,6 @@
 package com.example.training.springboottesting;
 
+import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,18 +12,27 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @Slf4j
+
 public class SpringBootTestingApplication implements CommandLineRunner {
 
+
+
 	@Autowired
-	CourseService courseService;
+	private AwsConfig awsConfig;
+
+	@Autowired
+	private CourseService courseService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootTestingApplication.class, args);
 	}
 
+	@SneakyThrows
 	@Override
 	public void run(String... args) throws Exception {
 		log.info(courseService.getCourses().toString());
-
+		log.info("awsCOnfig---->"+awsConfig.getRegionName());
 	}
 }
+
+
