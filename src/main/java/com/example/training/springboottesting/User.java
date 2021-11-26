@@ -17,4 +17,8 @@ public class User {
     public boolean isPrimeCustomer() {
         return new Random().nextBoolean();
     }
+
+    public String getLocation() {
+        return "US";
+    }
 }

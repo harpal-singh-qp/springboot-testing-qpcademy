@@ -31,7 +31,7 @@ public class SpringBootTestingApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		log.info(courseService.getCourses().toString());
-		log.info("awsCOnfig---->"+awsConfig.getRegionName());
+        log.info("awsCOnfig---->"+awsConfig.getRegionName());
 	}
 }
 

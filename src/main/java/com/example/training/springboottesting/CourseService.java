@@ -16,7 +16,7 @@ public class CourseService {
     @Autowired
     private CourseRepository courseRepository;
 
-
+    private boolean isEligibleForBlackFridaySale;
 
     public List<CourseDto> getCourses(){
         List<CourseDto> courseDtos = new ArrayList<>();
@@ -35,14 +35,6 @@ public class CourseService {
         return courseRepository.save(course);
     }
 
-//    public int getTotalEnrolledStudents(long courseID){
-//        Optional<Course> course = courseRepository.findById(courseID);
-//        return getTotalCount(course.get());
-//
-//    }
-//
-//    private int getTotalCount(Course course) {
-//        if()
-//    }
+
 
 }
