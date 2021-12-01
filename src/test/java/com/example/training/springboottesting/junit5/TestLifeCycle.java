@@ -9,8 +9,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 /**
  * Junit 5  Extenstion
- * --> Test Life Cycle Callbacks
- * --> Test Instance Post Processing
+ * --> Test Life Cycle Callbacks--TestSummaryExtention-- docker start , docker stop
+ * --> CousreService Integration  (Sql stubb)
+ * --> Test Instance Post Processing --LoggingExtenstion
  * --> Conditional Test Execution ( integration , slow, fast , dev , CI , QA  , Weekened, Weekdays)
  * --> Parameter Resoultion --> Everytest Injection  void testCourseCreateoin( int random) {
  * --> Exeception Handling
