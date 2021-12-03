@@ -11,7 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
  * CreatedBy Harpal Singh at 12/3/21
  */
 @ExtendWith({GoodCourseRequestCreator.class,LoggExceptionInfoExtention.class})
-public class CousreRequestResolver {
+public class TestParameterResolverAndExceptionHandler {
 
     @Test
     void validateCourseRequest(CourseRequest  courseRequest , TestInfo testInfo) {

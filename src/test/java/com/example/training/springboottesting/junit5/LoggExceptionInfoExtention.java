@@ -16,7 +16,7 @@ public class LoggExceptionInfoExtention implements TestExecutionExceptionHandler
 
     @Override
     public void handleTestExecutionException(ExtensionContext context, Throwable throwable) throws Throwable {
-        
+
         log.error(" Test-Instance "+ context.getTestInstance() +" threw an execption for test method ::"+context.getDisplayName());
         Optional<StackTraceElement> first = Arrays.stream(throwable.getStackTrace()).findFirst();
         StackTraceElement stackTraceElement = first.get();
