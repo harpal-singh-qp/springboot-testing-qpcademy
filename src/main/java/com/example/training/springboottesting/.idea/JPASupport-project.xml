@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoGeneratorSettingsState">
+    <option name="addSchemaNameToTableName" value="true" />
+    <option name="generateDatetimeDefaultValue" value="true" />
+    <option name="generateDefaultValue" value="true" />
+    <option name="generateSwaggerUIComment" value="true" />
+    <option name="ignoredFields">
+      <set>
+        <option value="" />
+      </set>
+    </option>
+    <option name="moduleName" value="springboottesting" />
+    <option name="moduleNameToSettings">
+      <map>
+        <entry key="springboottesting">
+          <value>
+            <ModuleSettings>
+              <option name="entityPackageName" value="com.example.training.springboottesting.app" />
+              <option name="entityParentDirectory" value="$PROJECT_DIR$/../../../.." />
+              <option name="repositoryPackageName" value="com.example.training.springboottesting.app" />
+              <option name="repositoryParentDirectory" value="$PROJECT_DIR$/../../../.." />
+            </ModuleSettings>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="useFluidProgrammingStyle" value="true" />
+    <option name="useJava8DateType" value="true" />
+  </component>
+</project>

@@ -3,6 +3,9 @@ package com.example.training.springboottesting.junit5;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+
+import java.lang.annotation.Target;
+
 /*
 
  whatever is getting repeated , think of writing an extention for it
@@ -16,8 +19,6 @@ public class TestRunOnCIExtentions {
 
 
     @Test
-    @Tag("integration")
-    @Tag("slow")
     void testOnCi(){
 
     }

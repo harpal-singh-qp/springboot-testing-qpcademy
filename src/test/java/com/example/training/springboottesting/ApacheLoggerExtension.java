@@ -9,7 +9,7 @@ import org.junit.jupiter.api.extension.TestInstancePostProcessor;
 
 import java.net.InetAddress;
 
-public class LoggerExtension implements TestInstancePostProcessor {
+public class ApacheLoggerExtension implements TestInstancePostProcessor {
 
     @Override
     public void postProcessTestInstance(Object testInstance, ExtensionContext context) throws Exception {
