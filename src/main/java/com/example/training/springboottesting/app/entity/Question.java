@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @Entity
 @Accessors(chain = true)
-@Table(name = "surveyapp.question")
+@Table(name = "question")
 public class Question implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -19,10 +19,11 @@ public class Question implements Serializable {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private User owner_id;
+    @JoinColumn(name="owner_id" ,insertable = false, updatable = false)
+    private User ownerId;
 
     @OneToMany( cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Answer> answers;
@@ -46,7 +47,7 @@ public class Question implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Question )) return false;
-        return id != null && id.equals(((Question) o).getId());
+        return getId()!=0l && getId()==((Question)o).getId();
     }
 
     @Override

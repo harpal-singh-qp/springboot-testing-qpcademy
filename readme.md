@@ -51,3 +51,11 @@
 - Testing Http Clients using @RestTemplate and @Webclient
 ### 5. Integration Test
 - End to End Tests
+
+### Application Setup 
+
+###### Download Rabbit MQ Image from DockerHub ########## 
+- docker pull rabbitmq:3-management
+
+###### Start RabbitMQ ######## 
+- docker run --rm -it --hostname my-rabbit -p 15672:15672 -p 5672:5672 rabbitmq:3-management

@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @Entity
 @Accessors(chain = true)
-@Table(name = "surveyapp.survey")
+@Table(name = "survey")
 public class Survey implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -19,10 +19,11 @@ public class Survey implements Serializable {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private User owner_id;
+    @ManyToOne(fetch = FetchType.LAZY )
+    @JoinColumn(name="owner_id" ,insertable = false, updatable = false)
+    private User owner;
 
     @OneToMany( cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Question> questions;
@@ -30,8 +31,8 @@ public class Survey implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "owner_id")
-    private Integer ownerId;
+    @Column(name = "owner_id" )
+    private long ownerId;
 
     @Column(name = "title")
     private String title;
@@ -43,13 +44,13 @@ public class Survey implements Serializable {
     private Date updatedAt;
 
     @Column(name = "updated_by")
-    private Integer updatedBy;
+    private long updatedBy;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Survey )) return false;
-        return id != null && id.equals(((Survey) o).getId());
+        return getId()!=0l && getId()==((Survey)o).getId();
     }
 
     @Override

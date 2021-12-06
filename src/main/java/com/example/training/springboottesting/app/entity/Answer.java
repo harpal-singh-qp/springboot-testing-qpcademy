@@ -10,7 +10,7 @@ import java.util.Date;
 @Data
 @Entity
 @Accessors(chain = true)
-@Table(name = "surveyapp.answer")
+@Table(name = "answer")
 public class Answer implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -18,13 +18,17 @@ public class Answer implements Serializable {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
+
+    @ManyToOne(fetch = FetchType.LAZY )
+    @JoinColumn(name="question_id" ,insertable = false, updatable = false)
+    private Question question;
 
     @Column(name = "question_id")
-    private Integer questionId;
+    private long questionId;
 
     @Column(name = "answer_text")
-    private Integer answerText;
+    private String answerText;
 
     @Column(name = "created_at")
     private Date createdAt;
@@ -36,7 +40,7 @@ public class Answer implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Answer )) return false;
-        return id != null && id.equals(((Answer) o).getId());
+        return getId()!=0l && getId()==((Answer)o).getId();
     }
 
     @Override
