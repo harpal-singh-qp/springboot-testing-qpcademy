@@ -1,0 +1,3 @@
+INSERT INTO user (id, first_name, last_name, email_address, phone_number, created_at, updated_at, age) VALUES (1, 'Prakash', 'Patil', 'harpal.singh@questionpro.com', '8867353792', '2021-12-05 16:09:32', '2021-12-05 16:09:32', 32);
+INSERT INTO user (id, first_name, last_name, email_address, phone_number, created_at, updated_at, age) VALUES (2, 'Rahul', 'Pullewar', 'atul.kadam@questiopro.com', '12345678', '2021-12-06 11:39:05', '2021-12-06 11:39:05', 30);
+INSERT INTO user (id, first_name, last_name, email_address, phone_number, created_at, updated_at, age) VALUES (3, 'Ajinkya', 'Deshmukh', 'atul.kadam@questiopro.com', '12345678', '2021-12-06 11:39:05', '2021-12-06 11:39:05', 30);

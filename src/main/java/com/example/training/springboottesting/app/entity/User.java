@@ -37,6 +37,10 @@ public class User implements Serializable {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @Column(name = "age")
+    private Integer age;
+
+
     @Column(name = "created_at")
     private Date createdAt;
 

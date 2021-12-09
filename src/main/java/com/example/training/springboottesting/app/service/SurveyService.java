@@ -3,7 +3,7 @@ package com.example.training.springboottesting.app.service;
 import com.example.training.springboottesting.app.dto.SurveyDTO;
 import com.example.training.springboottesting.app.entity.Survey;
 import com.example.training.springboottesting.app.mapper.SurveyObjectMapper;
-import com.example.training.springboottesting.app.repo.SurveyRepository;
+import com.example.training.springboottesting.app.repository.SurveyRepository;
 import com.example.training.springboottesting.app.request.SurveyRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

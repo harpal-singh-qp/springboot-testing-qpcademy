@@ -4,12 +4,10 @@ import com.example.training.springboottesting.app.dto.SurveyDTO;
 import com.example.training.springboottesting.app.entity.Survey;
 import com.example.training.springboottesting.app.entity.User;
 import com.example.training.springboottesting.app.exception.UserNotFoundException;
-import com.example.training.springboottesting.app.repo.UserRepository;
+import com.example.training.springboottesting.app.repository.UserRepository;
 import com.example.training.springboottesting.app.request.SurveyRequest;
-import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.Optional;
