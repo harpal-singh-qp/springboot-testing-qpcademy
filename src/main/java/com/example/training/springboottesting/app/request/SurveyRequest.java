@@ -1,14 +1,14 @@
 package com.example.training.springboottesting.app.request;
 
+import lombok.Builder;
 import lombok.Data;
-import lombok.ToString;
 
 /**
  * CreatedBy Harpal Singh at 12/3/21
  */
 
 @Data
-@ToString
+@Builder
 public class SurveyRequest {
 
     private String name;
