@@ -1,0 +1,3 @@
+INSERT INTO bookapp.course (id, course_name, course_duration, rating, coach_name, course_category, book_id, user_id, content, created_at, title) VALUES (1, 'Springboot', '1hr', null, null, null, null, null, null, null, null);
+INSERT INTO bookapp.course (id, course_name, course_duration, rating, coach_name, course_category, book_id, user_id, content, created_at, title) VALUES (2, 'Hibernate', '2hr', null, null, null, null, null, null, null, null);
+INSERT INTO bookapp.course (id, course_name, course_duration, rating, coach_name, course_category, book_id, user_id, content, created_at, title) VALUES (3, 'Junit', '1hr', null, null, null, null, null, null, null, null);
