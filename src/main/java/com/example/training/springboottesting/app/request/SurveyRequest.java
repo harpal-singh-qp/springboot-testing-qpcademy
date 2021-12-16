@@ -15,4 +15,5 @@ public class SurveyRequest {
     private String title;
     private long ownerId;
 
+
 }

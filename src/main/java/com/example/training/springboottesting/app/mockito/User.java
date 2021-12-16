@@ -15,6 +15,7 @@ public class User {
     private String name;
     private String emailAddress;
 
+
     public boolean isPrimeCustomer() {
         return new Random().nextBoolean();
     }

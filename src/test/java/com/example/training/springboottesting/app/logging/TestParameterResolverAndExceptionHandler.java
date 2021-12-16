@@ -21,7 +21,7 @@ public class TestParameterResolverAndExceptionHandler {
     @Test
     void validateCourseRequest(CourseRequest courseRequest) {
         Assertions.assertNotNull(courseRequest);
-        System.out.println(courseRequest.getUserName().length());
+      //  System.out.println(courseRequest.getUserName().length());
         Assertions.assertNotNull(courseRequest.getUserName());
     }
 

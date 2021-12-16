@@ -49,7 +49,7 @@ public class Survey implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Survey )) return false;
+        if (!(o instanceof Survey)) return false;
         return getId()!=0l && getId()==((Survey)o).getId();
     }
 

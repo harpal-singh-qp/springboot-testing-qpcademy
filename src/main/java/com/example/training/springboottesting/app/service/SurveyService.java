@@ -2,6 +2,7 @@ package com.example.training.springboottesting.app.service;
 
 import com.example.training.springboottesting.app.dto.SurveyDTO;
 import com.example.training.springboottesting.app.entity.Survey;
+import com.example.training.springboottesting.app.exception.UserNotFoundException;
 import com.example.training.springboottesting.app.mapper.SurveyObjectMapper;
 import com.example.training.springboottesting.app.repository.SurveyRepository;
 import com.example.training.springboottesting.app.request.SurveyRequest;
@@ -24,7 +25,7 @@ public class SurveyService implements SurveyRenderer {
     SurveyObjectMapper mapper;
 
     @Autowired
-    SurveyCreator surveyCreator;
+    SurveyQProducer surveyQProducer;
 
 
 
@@ -35,8 +36,15 @@ public class SurveyService implements SurveyRenderer {
     }
 
     @Override
-    public void createSurvey(SurveyRequest surveyRequest) {
-        surveyCreator.createSurvey(surveyRequest);
+    public void sendCreateSurveyToQueue(SurveyRequest surveyRequest) {
+        surveyQProducer.pushSurveyCreateRequestToQueue(surveyRequest);
+    }
+
+    @Override
+    public SurveyDTO createSurvey(SurveyRequest surveyRequest) throws UserNotFoundException {
+        Survey survey = mapper.convertToSurvey(surveyRequest);
+        Survey save = surveyRepository.save(survey);
+        return mapper.convertToSurveyDto(save);
     }
 
 }

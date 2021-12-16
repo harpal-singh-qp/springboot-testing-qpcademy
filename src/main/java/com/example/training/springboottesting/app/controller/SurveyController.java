@@ -1,13 +1,10 @@
 package com.example.training.springboottesting.app.controller;
 
 import com.example.training.springboottesting.app.dto.SurveyDTO;
-import com.example.training.springboottesting.app.entity.Survey;
+import com.example.training.springboottesting.app.exception.UserNotFoundException;
 import com.example.training.springboottesting.app.request.SurveyRequest;
 import com.example.training.springboottesting.app.service.SurveyRenderer;
-import com.example.training.springboottesting.app.service.SurveyService;
-import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,7 +26,12 @@ public class SurveyController {
     }
 
     @PostMapping("create-survey")
-    public void createSurvey(@RequestBody  SurveyRequest surveyRequest){
-        surveyService.createSurvey(surveyRequest);
+    public SurveyDTO createSurvey(@RequestBody  SurveyRequest surveyRequest) throws UserNotFoundException {
+        return surveyService.createSurvey(surveyRequest);
+    }
+
+    @PostMapping("send-create-survey-request")
+    public void sendCreateSurvey(@RequestBody  SurveyRequest surveyRequest){
+        surveyService.sendCreateSurveyToQueue(surveyRequest);
     }
 }
