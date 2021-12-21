@@ -2,11 +2,7 @@ package com.example.training.springboottesting.app.logging;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 
 /**
@@ -15,7 +11,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class CustomLoggingTest {
 
-    private static Log log = LogFactory.getLog(CustomLoggingTest.class);
+    private static Log log = LogFactory.getLog(GoodLoggingTest.class);
 
     @Test
     void customLoggingTest() {

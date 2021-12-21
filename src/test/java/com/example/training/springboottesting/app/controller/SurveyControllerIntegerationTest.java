@@ -9,17 +9,18 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
+import static org.springframework.http.HttpStatus.OK;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
  * CreatedBy Harpal Singh at 12/5/21
@@ -27,6 +28,7 @@ import static org.mockito.Mockito.when;
 
 @WebMvcTest(SurveyController.class)
 public class SurveyControllerIntegerationTest {
+
 
     @MockBean
     SurveyRenderer surveyRenderer;
@@ -38,32 +40,36 @@ public class SurveyControllerIntegerationTest {
     MockMvc mockMvc;
 
     @Test
-    void getAllSurveyTest() throws Exception {
-        List<SurveyDTO> surveyDTOList = new ArrayList<>();
-        surveyDTOList.add(SurveyDTO.builder().title("test-title")
-                .surveyID(1).ownerID(1).name("mock-mvc-name").build());
-
+    void getAllSurveyTest(List<SurveyDTO> surveyDTOList) throws Exception {
         when(surveyRenderer.getAllSurvey()).thenReturn(surveyDTOList);
-        mockMvc.perform(
-                MockMvcRequestBuilders.get("/survey/list-survey"))
-                .andExpect(MockMvcResultMatchers.status().is(HttpStatus.OK.value()))
-                .andDo(MockMvcResultHandlers.print())
-                .andReturn();
-    }
+
+        mockMvc.perform(get("/survey/list-survey"))
+                .andExpect(status().is(OK.value()))
+                .andDo(print())
+                .andExpect(jsonPath("$.[0].surveyID").value(1))
+                .andExpect(jsonPath("$.[0].name").value("SurveyName"))
+                 .andReturn();
+
+}
 
     @Test
     void createSurveyTest() throws Exception, UserNotFoundException {
-        SurveyRequest surveyRequest = SurveyRequest.builder().name("harpal").ownerId(1).title("title-survey").build();
-
-        when(surveyRenderer.createSurvey(surveyRequest)).thenReturn(SurveyDTO.builder().name(surveyRequest.getName()).build());
-        mockMvc.perform(
-                MockMvcRequestBuilders.post("/survey/create-survey")
-        .content(objectMapper.writeValueAsString(surveyRequest))
-        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().is(HttpStatus.OK.value()))
-                .andDo(MockMvcResultHandlers.print())
+    // Arrange
+        SurveyRequest surveyRequest = SurveyRequest.builder().title("postSurveyTitle")
+                .name("postSurveyName").build();
+        when(surveyRenderer.createSurvey(surveyRequest)).thenReturn(SurveyDTO.builder()
+                .name(surveyRequest.getName())
+                .title(surveyRequest.getTitle())
+                .build());
+        //Act//assert
+        mockMvc.perform(post("/survey/create-survey")
+                .content(objectMapper.writeValueAsString(surveyRequest))
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().is(OK.value()))
+                .andDo(print())
+                .andExpect(jsonPath("$.title").value("postSurveyTitle"))
+                .andExpect(jsonPath("$.name").value("postSurveyName"))
                 .andReturn();
-
     }
 
     @Test

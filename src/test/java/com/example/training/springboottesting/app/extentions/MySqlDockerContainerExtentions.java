@@ -16,19 +16,6 @@ public class MySqlDockerContainerExtentions implements TestInstancePostProcessor
             (MySQLContainer) new MySQLContainer("mysql:5.7.34")
                     .withInitScript("sql/ddl/survey-app.sql")
                     .withReuse(true);
-    ;
-
-
-//    @Override
-//    public void beforeAll(ExtensionContext context) {
-//
-//
-//    }
-//
-//
-//    @Override
-//    public void afterAll(ExtensionContext context) throws Exception {
-//    }
 
     @Override
     public void postProcessTestInstance(Object testInstance, ExtensionContext context) throws Exception {
