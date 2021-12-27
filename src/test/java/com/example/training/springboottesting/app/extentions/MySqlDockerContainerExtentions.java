@@ -20,7 +20,6 @@ public class MySqlDockerContainerExtentions implements TestInstancePostProcessor
     @Override
     public void postProcessTestInstance(Object testInstance, ExtensionContext context) throws Exception {
         mySQLContainer.start();
-        String jdbcUrl = String.format(mySQLContainer.getJdbcUrl());
         System.setProperty("spring.datasource.url", mySQLContainer.getJdbcUrl());
         System.setProperty("spring.datasource.username", mySQLContainer.getUsername());
         System.setProperty("spring.datasource.password", mySQLContainer.getPassword());

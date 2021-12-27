@@ -7,10 +7,10 @@ import com.example.training.springboottesting.app.mapper.UserObjectMapper;
 import com.example.training.springboottesting.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CreatedBy Harpal Singh at 12/2/21
@@ -30,6 +30,26 @@ public class UserController {
     public UserDTO createUser(@RequestBody UserRequest userRequest) {
         User user = userRepository.save(userObjectMapper.convertToUserObject(userRequest));
         return userObjectMapper.converToUserDTO(user);
+    }
+
+
+    @GetMapping(value = "get-user" ,produces = MediaType.APPLICATION_JSON_VALUE)
+    public UserDTO getUserByUserID(@RequestParam("user-id") long userID) {
+        User user = userRepository.findById(userID).get();
+        return userObjectMapper.converToUserDTO(user);
+    }
+
+
+    @GetMapping(value = "get-user-by-email" ,produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<UserDTO> getUserByEmailAddress(@RequestParam("email-address") String emailAddress) {
+        List<User> user = userRepository.findByEmailAddress(emailAddress);
+        List<UserDTO> userDTOList = new ArrayList<>();
+        user.stream().forEach(u-> addUserDto(u, userDTOList));
+        return userDTOList;
+    }
+
+    private void addUserDto(User u, List<UserDTO> userDTOList) {
+        userDTOList.add(userObjectMapper.converToUserDTO(u));
     }
 
 }

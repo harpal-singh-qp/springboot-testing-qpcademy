@@ -44,7 +44,7 @@ public class SurveyObjectMapper implements CustomObjectMapper {
         Optional<User> optionalUser = userRepository.findById(surveyRequest.getOwnerId());
         if(optionalUser.isPresent()){
             return new Survey().setName(surveyRequest.getName())
-                 //   .setOwner(optionalUser.get())
+                   // .setOwner(optionalUser.get())
                     .setOwnerId(surveyRequest.getOwnerId()).setTitle(surveyRequest.getTitle())
                     .setUpdatedAt(new Date()).setCreatedAt(new Date());
         } else {

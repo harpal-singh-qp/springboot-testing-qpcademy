@@ -30,6 +30,11 @@ public class SurveyController {
         return surveyService.createSurvey(surveyRequest);
     }
 
+    @GetMapping("get-survey")
+    public SurveyDTO getSurvey(@RequestParam("survey-id") long surveyID) throws Exception {
+        return surveyService.getSurvey(surveyID);
+    }
+
     @PostMapping("send-create-survey-request")
     public void sendCreateSurvey(@RequestBody  SurveyRequest surveyRequest){
         surveyService.sendCreateSurveyToQueue(surveyRequest);

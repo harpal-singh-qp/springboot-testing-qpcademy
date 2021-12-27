@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -45,6 +46,17 @@ public class SurveyService implements SurveyRenderer {
         Survey survey = mapper.convertToSurvey(surveyRequest);
         Survey save = surveyRepository.save(survey);
         return mapper.convertToSurveyDto(save);
+    }
+
+    @Override
+    public SurveyDTO getSurvey(long surveyID) throws Exception {
+        Optional<Survey> survey = surveyRepository.findById(surveyID);
+        if(survey.isPresent()) {
+            return mapper.convertToSurveyDto(survey.get());
+        }else{
+            throw new Exception("Survey not Found");
+        }
+
     }
 
 }

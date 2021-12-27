@@ -18,4 +18,6 @@ public interface SurveyRenderer {
      void sendCreateSurveyToQueue(SurveyRequest surveyRequest);
 
      SurveyDTO createSurvey(SurveyRequest surveyRequest) throws UserNotFoundException;
+
+    SurveyDTO getSurvey(long surveyID) throws Exception;
 }

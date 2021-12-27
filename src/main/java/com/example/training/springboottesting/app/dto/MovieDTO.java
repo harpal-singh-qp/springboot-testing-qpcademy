@@ -2,10 +2,7 @@ package com.example.training.springboottesting.app.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 /**
  * CreatedBy Harpal Singh at 12/19/21
@@ -15,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
+@ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MovieDTO {
 

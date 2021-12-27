@@ -27,6 +27,7 @@ import java.util.List;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @Slf4j
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+
 public class TestDbLayerDockerContainer {
 
     @Autowired

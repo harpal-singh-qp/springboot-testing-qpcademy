@@ -5,7 +5,6 @@ import com.example.training.springboottesting.app.exception.UserNotFoundExceptio
 import com.example.training.springboottesting.app.mapper.SurveyObjectMapper;
 import com.example.training.springboottesting.app.repository.SurveyRepository;
 import com.example.training.springboottesting.app.request.SurveyRequest;
-
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +21,7 @@ public class SurveyQConsumer {
 
     @Autowired
     SurveyObjectMapper mapper;
+
 
     @Autowired
     SurveyRepository surveyRepository;
